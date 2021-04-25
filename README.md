@@ -12,3 +12,7 @@
 - 后台模糊级别.
 - 状态栏时钟常显.
 - 强制设备为高端设备.
+
+__截图:__
+
+![MiuiHome](https://static01.imgkr.com/temp/d1a5b06535884b9cbfb195cb2e4e6c1b.jpg)
