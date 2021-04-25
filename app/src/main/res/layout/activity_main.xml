@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="30dip"
+        android:paddingTop="15dip"
+        android:paddingRight="30dip">
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text="@string/title1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Switch
+                android:id="@+id/complete_blur"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:text="@string/complete_blur"
+                android:textSize="20sp"
+                android:thumb="@drawable/switch_1"
+                android:track="@drawable/switch_4"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <Switch
+                android:id="@+id/simple_blur"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:text="@string/simple_blur"
+                android:textSize="20sp"
+                android:thumb="@drawable/switch_1"
+                android:track="@drawable/switch_4"
+
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <Switch
+                android:id="@+id/test_blur"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:text="@string/test_blur"
+                android:textSize="20sp"
+                android:thumb="@drawable/switch_1"
+                android:track="@drawable/switch_4"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <Switch
+                android:id="@+id/none_blur"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:text="@string/none_blur"
+                android:textSize="20sp"
+                android:thumb="@drawable/switch_1"
+                android:track="@drawable/switch_4"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dip">
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            android:orientation="vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip">
+
+        <TextView
+            android:id="@+id/transition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text="@string/transition" />
+
+        <SeekBar
+            android:id="@+id/transition_seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:gravity="center_vertical"
+            android:paddingStart="12dip"
+            android:paddingEnd="5dip">
+
+            <TextView
+                android:id="@+id/transition_min"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:text="@string/transition_min"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/value_TextView"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/transition_max"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:text="@string/transition_max"
+                android:textAlignment="viewEnd"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dip">
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            android:orientation="vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip">
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text="@string/title2" />
+
+        <Switch
+            android:id="@+id/smooth_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/smooth_animation"
+            android:textSize="20sp"
+            android:thumb="@drawable/switch_1"
+            android:track="@drawable/switch_4"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/blur_when_open_folder"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:text="@string/blur_when_open_folder"
+            android:textSize="20sp"
+            android:thumb="@drawable/switch_1"
+            android:track="@drawable/switch_4"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/maml_download"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:text="@string/maml_download"
+            android:textSize="20sp"
+            android:thumb="@drawable/switch_1"
+            android:track="@drawable/switch_4"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dip">
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            android:orientation="vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:orientation="vertical"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip">
+
+        <TextView
+            android:id="@+id/title3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text="@string/title3" />
+
+        <Switch
+            android:id="@+id/clock_a"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:text="@string/clock_a"
+            android:textSize="20sp"
+            android:thumb="@drawable/switch_1"
+            android:track="@drawable/switch_4"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/simple_a"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:text="@string/simple_a"
+            android:textSize="20sp"
+            android:thumb="@drawable/switch_1"
+            android:track="@drawable/switch_4"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="30dip">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="140dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dip"
+            android:gravity="center_horizontal"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="330dip"
+            android:layout_height="50dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dip"
+            android:background="@drawable/button_1"
+            android:text="@string/button"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/about_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/about_a" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
