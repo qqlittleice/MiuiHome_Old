@@ -6,12 +6,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import miui.*
+import miui.app.Activity
 
 
 @SuppressLint("UseSwitchCompatOrMaterialCode")
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     private var isModuleEnable = false
     var complete = Default().complete
     var simple = Default().simple
@@ -27,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     val module_enable = "模块已激活"
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(miui.R.style.Theme_Light_Settings)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         isModuleEnable = Default().getData(this, "TEST_MODULE", 1) == 1
