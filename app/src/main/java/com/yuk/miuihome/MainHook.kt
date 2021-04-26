@@ -4,7 +4,7 @@ import de.robv.android.xposed.*
 import de.robv.android.xposed.XposedHelpers.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class HomeHook: IXposedHookLoadPackage {
+class MainHook: IXposedHookLoadPackage {
     companion object {
         const val SELF_PACKAGENAME = BuildConfig.APPLICATION_ID
         var Complete = Default().complete
@@ -21,9 +21,7 @@ class HomeHook: IXposedHookLoadPackage {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (lpparam.packageName == "com.miui.home") {
-
             try {
-
                 //模糊级别
                 if (getData("COMPLETE", Complete) == 1) {
                     findAndHookMethod(
@@ -135,13 +133,18 @@ class HomeHook: IXposedHookLoadPackage {
                 }
 
                 // 动画速度
-                val tran = ((getData("TRANSITION", Transition))/10.0).toFloat()
+                val tran = (((getData("TRANSITION", Transition)).toFloat())/10.0)
                 findAndHookMethod(
                     "com.miui.home.launcher.common.DeviceLevelUtils",
                     lpparam.classLoader,
-                    "getDeviceLevelTransitionAnimRatio",Float::class.java,
-                    XC_MethodReplacement.returnConstant(tran)
-                )
+                    "getDeviceLevelTransitionAnimRatio",
+                    Float::class.java,
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            param.args[1] = tran
+                            super.beforeHookedMethod(param)
+                        }
+                    })
 
                 //设备分级
                 findAndHookMethod(
@@ -151,7 +154,6 @@ class HomeHook: IXposedHookLoadPackage {
                     XC_MethodReplacement.returnConstant(2)
                 )
 
-                //骁龙分级
                 findAndHookMethod(
                     "miuix.animation.util.DeviceUtils",
                     lpparam.classLoader,
@@ -164,8 +166,6 @@ class HomeHook: IXposedHookLoadPackage {
                     "getQualcommCpuLevel", String::class.java,
                     XC_MethodReplacement.returnConstant(2)
                 )
-
-                //联发科分级
                 findAndHookMethod(
                     "miuix.animation.util.DeviceUtils",
                     lpparam.classLoader,
@@ -175,7 +175,7 @@ class HomeHook: IXposedHookLoadPackage {
                 findAndHookMethod(
                     "com.miui.home.launcher.common.CpuLevelUtils",
                     lpparam.classLoader,
-                    "getQualcommCpuLevel", String::class.java,
+                    "getMtkCpuLevel", String::class.java,
                     XC_MethodReplacement.returnConstant(2)
                 )
             } catch (e: Exception) {

@@ -4,13 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 
 class Default {
-    val complete = 0
+    val complete = 1
     val simple = 0
     val none = 0
     val test = 0
     val folder = 0
     val maml = 0
-    val smooth = 0
+    val smooth = 1
     val clock = 0
     val simplea = 0
     val icon = 0
