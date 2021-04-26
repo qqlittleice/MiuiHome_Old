@@ -108,7 +108,6 @@
         <SeekBar
             android:id="@+id/transition_seekBar"
             android:layout_width="match_parent"
-            android:background="@drawable/seekber"
             android:layout_marginTop="3dip"
             android:layout_height="wrap_content" />
 

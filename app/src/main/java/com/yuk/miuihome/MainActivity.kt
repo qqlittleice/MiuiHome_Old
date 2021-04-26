@@ -30,7 +30,7 @@ class MainActivity : Activity() {
     val module_enable = "模块已激活"
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(miui.R.style.Theme_DayNight_Settings)
+        setTheme(miui.R.style.Theme_Light_Settings)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         isModuleEnable = Default().getData(this, "TEST_MODULE", 1) == 1

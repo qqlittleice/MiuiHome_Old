@@ -1,8 +1,11 @@
 package com.yuk.miuihome
 
+import android.telephony.TelephonyManager
 import de.robv.android.xposed.*
-import de.robv.android.xposed.XposedHelpers.*
+import de.robv.android.xposed.XposedHelpers.findAndHookMethod
+import de.robv.android.xposed.callbacks.XC_InitPackageResources
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+
 
 class MainHook: IXposedHookLoadPackage {
     companion object {
@@ -77,13 +80,15 @@ class MainHook: IXposedHookLoadPackage {
                 if (getData("SIMPLEA", Simplea) == 1) {
                     findAndHookMethod(
                         "com.miui.home.launcher.common.DeviceLevelUtils",
-                        lpparam.classLoader, "isUseSimpleAnim",
+                        lpparam.classLoader,
+                        "isUseSimpleAnim",
                         XC_MethodReplacement.returnConstant(true)
                     )
                 } else {
                     findAndHookMethod(
                         "com.miui.home.launcher.common.DeviceLevelUtils",
-                        lpparam.classLoader, "isUseSimpleAnim",
+                        lpparam.classLoader,
+                        "isUseSimpleAnim",
                         XC_MethodReplacement.returnConstant(false)
                     )
                 }
@@ -133,7 +138,7 @@ class MainHook: IXposedHookLoadPackage {
                 }
 
                 // 动画速度
-                val tran = (((getData("TRANSITION", Transition)).toFloat())/10.0)
+                val tran: Float = (Transition/100.0).toFloat()
                 findAndHookMethod(
                     "com.miui.home.launcher.common.DeviceLevelUtils",
                     lpparam.classLoader,
@@ -144,44 +149,46 @@ class MainHook: IXposedHookLoadPackage {
                             param.args[1] = tran
                             super.beforeHookedMethod(param)
                         }
-                    })
+                    }
+                )
 
                 //设备分级
                 findAndHookMethod(
                     "com.miui.home.launcher.common.DeviceLevelUtils",
                     lpparam.classLoader,
-                    "getDeviceLevel",
+                    "getDeviceLevel",Int::class.java,
+                    XC_MethodReplacement.returnConstant(2)
+                )
+                findAndHookMethod(
+                    "miuix.animation.util.DeviceUtils",
+                    lpparam.classLoader,
+                    "getDeviceLevel", Int::class.java,
                     XC_MethodReplacement.returnConstant(2)
                 )
 
                 findAndHookMethod(
                     "miuix.animation.util.DeviceUtils",
                     lpparam.classLoader,
-                    "getQualcommCpuLevel", String::class.java,
+                    "getQualcommCpuLevel", Int::class.java, String::class.java,
                     XC_MethodReplacement.returnConstant(2)
                 )
                 findAndHookMethod(
                     "com.miui.home.launcher.common.CpuLevelUtils",
                     lpparam.classLoader,
-                    "getQualcommCpuLevel", String::class.java,
+                    "getQualcommCpuLevel", Int::class.java, String::class.java,
                     XC_MethodReplacement.returnConstant(2)
                 )
                 findAndHookMethod(
                     "miuix.animation.util.DeviceUtils",
                     lpparam.classLoader,
-                    "getMtkCpuLevel", String::class.java,
+                    "getMtkCpuLevel", Int::class.java, String::class.java,
                     XC_MethodReplacement.returnConstant(1)
-                )
-                findAndHookMethod(
-                    "com.miui.home.launcher.common.CpuLevelUtils",
-                    lpparam.classLoader,
-                    "getMtkCpuLevel", String::class.java,
-                    XC_MethodReplacement.returnConstant(2)
                 )
             } catch (e: Exception) {
                 XposedBridge.log("[MIUIHome]Error:" + e.message)}
         }
     }
+
 
     private fun getData(key: String, defValue: Int): Int {
         try {
