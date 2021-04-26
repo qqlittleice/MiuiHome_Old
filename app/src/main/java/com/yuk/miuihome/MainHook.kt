@@ -23,6 +23,7 @@ class HomeHook: IXposedHookLoadPackage {
         if (lpparam.packageName == "com.miui.home") {
 
             try {
+
                 //模糊级别
                 if (getData("COMPLETE", Complete) == 1) {
                     findAndHookMethod(
@@ -138,7 +139,7 @@ class HomeHook: IXposedHookLoadPackage {
                 findAndHookMethod(
                     "com.miui.home.launcher.common.DeviceLevelUtils",
                     lpparam.classLoader,
-                    "getDeviceLevelTransitionAnimRatio",
+                    "getDeviceLevelTransitionAnimRatio",Float::class.java,
                     XC_MethodReplacement.returnConstant(tran)
                 )
 

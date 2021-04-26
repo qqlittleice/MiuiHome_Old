@@ -10,8 +10,8 @@ android {
         applicationId "com.yuk.miuihome"
         minSdkVersion 29
         targetSdkVersion 30
-        versionCode 230
-        versionName "2.3.0"
+        versionCode 250
+        versionName "2.5.0"
     }
 
     buildTypes {
@@ -23,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility "1.8"
+        targetCompatibility "1.8"
     }
     kotlinOptions {
         jvmTarget = '1.8'

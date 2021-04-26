@@ -13,6 +13,7 @@ class Default {
     val smooth = 0
     val clock = 0
     val simplea = 0
+    val icon = 0
     val transition = 10
     val DATAFILENAME = "Config"
 

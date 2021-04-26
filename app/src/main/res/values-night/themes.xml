@@ -1,5 +1,5 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="Theme.MiuiHmoe" parent="ThemeOverlay.AppCompat.Dark">
+
     </style>
 </resources>
