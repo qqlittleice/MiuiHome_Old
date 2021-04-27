@@ -18,7 +18,6 @@ class MainActivity : Activity() {
     var complete = Default().complete
     var simple = Default().simple
     var none = Default().none
-    var test = Default().test
     var folder = Default().folder
     var maml = Default().maml
     var smooth = Default().smooth
@@ -44,7 +43,6 @@ class MainActivity : Activity() {
         complete = Default().getData(this, "COMPLETE", complete)
         simple = Default().getData(this, "SIMPLE", simple)
         none = Default().getData(this, "NONE", none)
-        test = Default().getData(this, "TEST", test)
         folder = Default().getData(this, "FOLDER", folder)
         maml = Default().getData(this, "MAML", maml)
         smooth = Default().getData(this, "SMOOTH", smooth)
@@ -101,7 +99,6 @@ class MainActivity : Activity() {
         val complete_blur = findViewById<Switch>(R.id.complete_blur)
         val simple_blur = findViewById<Switch>(R.id.simple_blur)
         val none_blur = findViewById<Switch>(R.id.none_blur)
-        val test_blur = findViewById<Switch>(R.id.test_blur)
         val maml_download = findViewById<Switch>(R.id.maml_download)
         val smooth_animation = findViewById<Switch>(R.id.smooth_animation)
         val clock_a = findViewById<Switch>(R.id.clock_a)
@@ -109,7 +106,6 @@ class MainActivity : Activity() {
         val button = findViewById<Button>(R.id.button)
         val textview = findViewById<TextView>(R.id.textView)
         val hide_icon = findViewById<Switch>(R.id.hide_icon)
-
 
         transition_min.text = 0.toString()
         transition_max.text = 100.toString()
@@ -124,7 +120,6 @@ class MainActivity : Activity() {
         complete_blur.isChecked = complete == 1
         simple_blur.isChecked = simple == 1
         none_blur.isChecked = none == 1
-        test_blur.isChecked = test == 1
         blur_when_open_folder.isChecked = folder == 1
         maml_download.isChecked = maml == 1
         smooth_animation.isChecked = smooth == 1
@@ -137,19 +132,16 @@ class MainActivity : Activity() {
             complete = if (complete_blur.isChecked) 1 else 0
             simple = if (simple_blur.isChecked) 1 else 0
             none = if (none_blur.isChecked) 1 else 0
-            test = if (test_blur.isChecked) 1 else 0
             folder = if (blur_when_open_folder.isChecked) 1 else 0
             maml = if (maml_download.isChecked) 1 else 0
             smooth = if (smooth_animation.isChecked) 1 else 0
             clock = if (clock_a.isChecked) 1 else 0
             simplea = if (simple_a.isChecked) 1 else 0
             icon = if (hide_icon.isChecked) 1 else 0
-
             Default().saveData(this, "TRANSITION", transition)
             Default().saveData(this, "COMPLETE", complete)
             Default().saveData(this, "SIMPLE", simple)
             Default().saveData(this, "NONE", none)
-            Default().saveData(this, "TEST", test)
             Default().saveData(this, "FOLDER", folder)
             Default().saveData(this, "MAML", maml)
             Default().saveData(this, "SMOOTH", smooth)

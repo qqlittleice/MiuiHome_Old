@@ -4,8 +4,7 @@
     <string name="complete_blur">完整模糊</string>
     <string name="simple_blur">简单模糊</string>
     <string name="none_blur">无模糊</string>
-    <string name="test_blur">测试模糊</string>
-    <string name="title1">后台模糊级别(四选一,测试模糊在大部分机型都无效)</string>
+    <string name="title1">后台模糊级别(三选一)</string>
     <string name="title2">其他设置</string>
     <string name="title3">扩展设置</string>
     <string name="button">保存设定</string>
@@ -16,7 +15,7 @@
     <string name="smooth_animation">平滑动画</string>
     <string name="blur_when_open_folder">文件夹模糊</string>
     <string name="maml_download">水波纹下载特效</string>
-    <string name="transition">动画速度调节(速度=示数/10,太菜了,搞不出来🕊)</string>
+    <string name="transition">动画速度调节(速度=示数/10,太菜了搞不出来🕊)</string>
     <string name="transition_min">0</string>
     <string name="transition_max">100</string>
     <string name="clock_a">时钟常显</string>

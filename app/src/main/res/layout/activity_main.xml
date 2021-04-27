@@ -8,7 +8,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,18 +54,6 @@
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                 <Switch
-                    android:id="@+id/test_blur"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dip"
-                    android:showText="false"
-                    android:switchMinWidth="1dp"
-                    android:text="@string/test_blur"
-                    android:textSize="20sp"
-                    android:thumb="@drawable/switch_1"
-                    android:track="@drawable/switch_4"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-                <Switch
                     android:id="@+id/none_blur"
                     android:layout_width="match_parent"
                     android:layout_height="35dip"
@@ -78,70 +66,6 @@
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="15dip">
-
-                <View
-                    android:id="@+id/divider1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider"
-                    android:orientation="vertical" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/transition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:text="@string/transition" />
-
-                <SeekBar
-                    android:id="@+id/transition_seekBar"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="8dip"
-                    android:layout_height="wrap_content" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dip"
-                    android:gravity="center_vertical"
-                    android:paddingStart="12dip"
-                    android:paddingEnd="5dip">
-
-                    <TextView
-                        android:id="@+id/transition_min"
-                        android:layout_width="70dip"
-                        android:layout_height="wrap_content"
-                        android:text="@string/transition_min"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/value_TextView"
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textAlignment="center"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/transition_max"
-                        android:layout_width="70dip"
-                        android:layout_height="wrap_content"
-                        android:text="@string/transition_max"
-                        android:textAlignment="viewEnd"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -173,37 +97,37 @@
                     android:id="@+id/smooth_animation"
                     android:layout_width="match_parent"
                     android:layout_height="35dip"
-                    android:text="@string/smooth_animation"
-                    android:textSize="20sp"
                     android:layout_marginTop="3dip"
-                    android:thumb="@drawable/switch_1"
-                    android:track="@drawable/switch_4"
                     android:showText="false"
                     android:switchMinWidth="1dp"
+                    android:text="@string/smooth_animation"
+                    android:textSize="20sp"
+                    android:thumb="@drawable/switch_1"
+                    android:track="@drawable/switch_4"
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                 <Switch
                     android:id="@+id/blur_when_open_folder"
                     android:layout_width="match_parent"
                     android:layout_height="35dip"
+                    android:showText="false"
+                    android:switchMinWidth="1dp"
                     android:text="@string/blur_when_open_folder"
                     android:textSize="20sp"
                     android:thumb="@drawable/switch_1"
                     android:track="@drawable/switch_4"
-                    android:showText="false"
-                    android:switchMinWidth="1dp"
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                 <Switch
                     android:id="@+id/maml_download"
                     android:layout_width="match_parent"
                     android:layout_height="35dip"
+                    android:showText="false"
+                    android:switchMinWidth="1dp"
                     android:text="@string/maml_download"
                     android:textSize="20sp"
                     android:thumb="@drawable/switch_1"
                     android:track="@drawable/switch_4"
-                    android:showText="false"
-                    android:switchMinWidth="1dp"
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             </LinearLayout>
@@ -271,6 +195,71 @@
                     android:thumb="@drawable/switch_1"
                     android:track="@drawable/switch_4"
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dip">
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/transition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/transition" />
+
+                <SeekBar
+                    android:id="@+id/transition_seekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dip"
+                    android:paddingEnd="5dip">
+
+                    <TextView
+                        android:id="@+id/transition_min"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transition_min"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/value_TextView"
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/transition_max"
+                        android:layout_width="70dip"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transition_max"
+                        android:textAlignment="viewEnd"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -281,7 +270,7 @@
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="320dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dip"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="30dip"
@@ -310,7 +299,9 @@
                     android:text="@string/about_a" />
 
             </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

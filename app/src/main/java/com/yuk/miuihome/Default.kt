@@ -7,7 +7,6 @@ class Default {
     val complete = 1
     val simple = 0
     val none = 0
-    val test = 0
     val folder = 0
     val maml = 0
     val smooth = 1

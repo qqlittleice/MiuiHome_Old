@@ -1,9 +1,8 @@
 package com.yuk.miuihome
 
-import android.telephony.TelephonyManager
+import com.yuk.miuihome.MainHook.Companion.SELF_PACKAGENAME
 import de.robv.android.xposed.*
 import de.robv.android.xposed.XposedHelpers.findAndHookMethod
-import de.robv.android.xposed.callbacks.XC_InitPackageResources
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 
@@ -13,7 +12,6 @@ class MainHook: IXposedHookLoadPackage {
         var Complete = Default().complete
         var Simple = Default().simple
         var None = Default().none
-        var Test = Default().test
         var Folder = Default().folder
         var Maml = Default().maml
         var Smooth = Default().smooth
@@ -48,14 +46,6 @@ class MainHook: IXposedHookLoadPackage {
                         lpparam.classLoader,
                         "getBlurType",
                         XC_MethodReplacement.returnConstant(0)
-                    )
-                }
-                if (getData("TEST", Test) == 1) {
-                    findAndHookMethod(
-                        "com.miui.home.launcher.common.Utilities",
-                        lpparam.classLoader,
-                        "isUseCompleteBlurOnDev",
-                        XC_MethodReplacement.returnConstant(true)
                     )
                 }
 
@@ -138,65 +128,35 @@ class MainHook: IXposedHookLoadPackage {
                 }
 
                 // 动画速度
-                val tran: Float = (Transition/100.0).toFloat()
+                val tran = ((getData("TRANSITION", Transition))/10.0).toFloat()
                 findAndHookMethod(
                     "com.miui.home.launcher.common.DeviceLevelUtils",
                     lpparam.classLoader,
                     "getDeviceLevelTransitionAnimRatio",
-                    Float::class.java,
-                    object : XC_MethodHook() {
-                        override fun beforeHookedMethod(param: MethodHookParam) {
-                            param.args[1] = tran
-                            super.beforeHookedMethod(param)
-                        }
-                    }
+                    XC_MethodReplacement.returnConstant(tran)
                 )
 
                 //设备分级
                 findAndHookMethod(
                     "com.miui.home.launcher.common.DeviceLevelUtils",
                     lpparam.classLoader,
-                    "getDeviceLevel",Int::class.java,
-                    XC_MethodReplacement.returnConstant(2)
-                )
-                findAndHookMethod(
-                    "miuix.animation.util.DeviceUtils",
-                    lpparam.classLoader,
-                    "getDeviceLevel", Int::class.java,
+                    "getDeviceLevel",
                     XC_MethodReplacement.returnConstant(2)
                 )
 
-                findAndHookMethod(
-                    "miuix.animation.util.DeviceUtils",
-                    lpparam.classLoader,
-                    "getQualcommCpuLevel", Int::class.java, String::class.java,
-                    XC_MethodReplacement.returnConstant(2)
-                )
-                findAndHookMethod(
-                    "com.miui.home.launcher.common.CpuLevelUtils",
-                    lpparam.classLoader,
-                    "getQualcommCpuLevel", Int::class.java, String::class.java,
-                    XC_MethodReplacement.returnConstant(2)
-                )
-                findAndHookMethod(
-                    "miuix.animation.util.DeviceUtils",
-                    lpparam.classLoader,
-                    "getMtkCpuLevel", Int::class.java, String::class.java,
-                    XC_MethodReplacement.returnConstant(1)
-                )
             } catch (e: Exception) {
-                XposedBridge.log("[MIUIHome]Error:" + e.message)}
+                XposedBridge.log("[MiuiHome]Method:" + e.message)
+            }
         }
     }
+}
 
-
-    private fun getData(key: String, defValue: Int): Int {
-        try {
-            val pref = XSharedPreferences(SELF_PACKAGENAME, Default().DATAFILENAME)
-            return pref.getInt(key, defValue)
-        } catch (e: Exception) {
-            XposedBridge.log("[MIUIHome]Can not getdata:" + key)
-        }
-        return defValue
+private fun getData(key: String, defValue: Int): Int {
+    try {
+        val pref = XSharedPreferences(SELF_PACKAGENAME, Default().DATAFILENAME)
+        return pref.getInt(key, defValue)
+    } catch (e: Exception) {
+        XposedBridge.log("[MIUIHome]$key")
     }
+    return defValue
 }

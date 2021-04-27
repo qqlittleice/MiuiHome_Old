@@ -10,8 +10,8 @@ android {
         applicationId "com.yuk.miuihome"
         minSdkVersion 29
         targetSdkVersion 30
-        versionCode 231
-        versionName "2.3.1"
+        versionCode 233
+        versionName "2.3.3"
     }
 
     buildTypes {
@@ -29,14 +29,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    aaptOptions {
+        noCompress 'zip'
+    }
 }
 
 dependencies {
 
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.2.0'
     compileOnly 'de.robv.android.xposed:api:82'
-    compileOnly files('libs/miui.jar')
-    compileOnly files('libs/miuisystem.jar')
-    compileOnly files('libs/framework.jar')
+    compileOnly 'de.robv.android.xposed:api:82:sources'
+    compileOnly files('lib/miui.jar')
+    compileOnly files('lib/miuisystem.jar')
+    compileOnly files('lib/framework.jar')
 }
