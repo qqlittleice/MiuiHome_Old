@@ -15,9 +15,9 @@
     <string name="smooth_animation">平滑动画</string>
     <string name="blur_when_open_folder">文件夹模糊</string>
     <string name="maml_download">水波纹下载特效</string>
-    <string name="transition">动画速度调节(速度=示数/10,太菜了搞不出来🕊)</string>
+    <string name="transition">动画速度调节(无效设置，太菜了搞不出来🕊)</string>
     <string name="transition_min">0</string>
-    <string name="transition_max">100</string>
+    <string name="transition_max">10</string>
     <string name="clock_a">时钟常显</string>
     <string name="simple_a">简单动画</string>
     <string name="hide_icon">隐藏桌面图标</string>

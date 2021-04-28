@@ -274,7 +274,7 @@
                     android:layout_height="50dip"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="30dip"
-                    android:layout_marginBottom="10dip"
+                    android:layout_marginBottom="15dip"
                     android:background="@drawable/button_1"
                     android:text="@string/button"
                     android:textAlignment="center"
@@ -286,7 +286,7 @@
                     android:layout_width="140dip"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="5dip"
+                    android:layout_marginBottom="20dip"
                     android:gravity="center_horizontal"
                     android:textSize="16sp" />
 

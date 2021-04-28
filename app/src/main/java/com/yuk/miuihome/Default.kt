@@ -19,7 +19,8 @@ class Default {
     @SuppressLint("SetWorldReadable")
     fun saveData(context: Context, key: String, value: Int) {
         try {
-            val sharedPreferences = context.getSharedPreferences(DATAFILENAME, Context.MODE_WORLD_READABLE)
+            val sharedPreferences =
+                context.getSharedPreferences(DATAFILENAME, Context.MODE_WORLD_READABLE)
             val editor = sharedPreferences.edit()
             editor.putInt(key, value)
             editor.apply()

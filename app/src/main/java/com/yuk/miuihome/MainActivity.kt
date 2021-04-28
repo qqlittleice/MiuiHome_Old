@@ -10,11 +10,10 @@ import android.provider.Settings
 import android.widget.*
 import miui.app.Activity
 import java.io.DataOutputStream
-import java.lang.Exception
+
 
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 class MainActivity : Activity() {
-    private var isModuleEnable = false
     var complete = Default().complete
     var simple = Default().simple
     var none = Default().none
@@ -28,12 +27,15 @@ class MainActivity : Activity() {
     val module_not_enable = "模块未激活"
     val module_enable = "模块已激活"
 
+    private fun isModuleEnable(): Boolean {
+        return false
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(miui.R.style.Theme_Light_Settings)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        isModuleEnable = Default().getData(this, "TEST_MODULE", 1) == 1
-        if (!isModuleEnable) {
+        if (!isModuleEnable()) {
             val textview = findViewById<TextView>(R.id.textView)
             textview.text = module_not_enable
         } else  {
@@ -59,8 +61,8 @@ class MainActivity : Activity() {
             switch = PackageManager.COMPONENT_ENABLED_STATE_DISABLED
         }
         this.packageManager.setComponentEnabledSetting(
-            ComponentName(this, this.javaClass.name + "Alias"),
-            switch, PackageManager.DONT_KILL_APP
+                ComponentName(this, this.javaClass.name + "Alias"),
+                switch, PackageManager.DONT_KILL_APP
         )
         try {
             val suProcess = Runtime.getRuntime().exec("su")
@@ -92,8 +94,6 @@ class MainActivity : Activity() {
 
     private fun init() {
         val transition_seekBar = findViewById<SeekBar>(R.id.transition_seekBar)
-        val transition_max = findViewById<TextView>(R.id.transition_max)
-        val transition_min = findViewById<TextView>(R.id.transition_min)
         val value_TextView = findViewById<TextView>(R.id.value_TextView)
         val blur_when_open_folder = findViewById<Switch>(R.id.blur_when_open_folder)
         val complete_blur = findViewById<Switch>(R.id.complete_blur)
@@ -107,15 +107,15 @@ class MainActivity : Activity() {
         val textview = findViewById<TextView>(R.id.textView)
         val hide_icon = findViewById<Switch>(R.id.hide_icon)
 
-        transition_min.text = 0.toString()
-        transition_max.text = 100.toString()
         transition_seekBar.progress = transition
-        value_TextView.text = transition.toString()
+        value_TextView.text = (transition/10.0).toString()
         transition_seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                value_TextView.text = p1.toString()}
+                value_TextView.text = (p1/10.0).toString()
+            }
             override fun onStartTrackingTouch(p0: SeekBar?) {}
-            override fun onStopTrackingTouch(p0: SeekBar?) {}})
+            override fun onStopTrackingTouch(p0: SeekBar?) {}
+        })
 
         complete_blur.isChecked = complete == 1
         simple_blur.isChecked = simple == 1
