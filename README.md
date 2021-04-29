@@ -15,4 +15,4 @@
 
 __截图:__
 
-![MiuiHome](https://cdn.jsdelivr.net/gh/YuKongA/MiuiHome@main/MiuiHome截图.jpg)
+![MiuiHome](https://cdn.jsdelivr.net/gh/YuKongA/MiuiHome@main/Screenshot.jpg)
