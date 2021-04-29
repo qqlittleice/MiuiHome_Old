@@ -227,6 +227,7 @@
                     android:id="@+id/transition_seekBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:max="1000"
                     android:layout_marginTop="8dip" />
 
                 <LinearLayout

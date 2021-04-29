@@ -13,7 +13,7 @@ class Default {
     val clock = 0
     val simplea = 0
     val icon = 0
-    val transition = 10
+    val transition = 100
     val DATAFILENAME = "Config"
 
     @SuppressLint("SetWorldReadable")

@@ -139,23 +139,21 @@ class MainHook: IXposedHookLoadPackage {
 
                     //设备分级
                     findAndHookMethod(
-                        "com.miui.home.launcher.common.DeviceLevelUtils",
-                        lpparam.classLoader,
-                        "getDeviceLevel",
-                        XC_MethodReplacement.returnConstant(2)
+                            "com.miui.home.launcher.common.DeviceLevelUtils",
+                            lpparam.classLoader,
+                            "getDeviceLevel",
+                            XC_MethodReplacement.returnConstant(2)
                     )
 
                     //动画速度
+                    val Tran = getData("TRANSITION", Transition)
                     findAndHookMethod(
-                        "com.miui.home.launcher.common.DeviceLevelUtils",
-                        lpparam.classLoader,
-                        "getDeviceLevelTransitionAnimRatio",
-                        object : XC_MethodHook() {
-                            override fun beforeHookedMethod(param: MethodHookParam) {
-                                param.result = (Transition / 10.0).toFloat()
-                            }
-                        }
+                            "com.miui.home.recents.TransitionAnimDurationHelper",
+                            lpparam.classLoader,
+                            "getAnimDurationRatio",
+                            XC_MethodReplacement.returnConstant((Tran/100.0).toFloat())
                     )
+
                 } catch (e: Throwable) {
                     XposedBridge.log("[MiuiHome]Method:" + e.message)
                 }
@@ -176,3 +174,4 @@ private fun getData(key: String, defValue: Int): Int {
     }
     return defValue
 }
+

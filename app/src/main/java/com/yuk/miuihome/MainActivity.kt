@@ -108,10 +108,10 @@ class MainActivity : Activity() {
         val hide_icon = findViewById<Switch>(R.id.hide_icon)
 
         transition_seekBar.progress = transition
-        value_TextView.text = (transition/10.0).toString()
+        value_TextView.text = (transition/100.0).toString()
         transition_seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                value_TextView.text = (p1 / 10.0).toString()
+                value_TextView.text = (p1 / 100.0).toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
