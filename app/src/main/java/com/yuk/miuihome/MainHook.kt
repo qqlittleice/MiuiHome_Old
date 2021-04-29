@@ -151,7 +151,7 @@ class MainHook: IXposedHookLoadPackage {
                         lpparam.classLoader,
                         "getDeviceLevelTransitionAnimRatio",
                         object : XC_MethodHook() {
-                            override fun afterHookedMethod(param: MethodHookParam) {
+                            override fun beforeHookedMethod(param: MethodHookParam) {
                                 param.result = (Transition / 10.0).toFloat()
                             }
                         }
