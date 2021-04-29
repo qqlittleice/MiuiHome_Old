@@ -61,8 +61,8 @@ class MainActivity : Activity() {
             switch = PackageManager.COMPONENT_ENABLED_STATE_DISABLED
         }
         this.packageManager.setComponentEnabledSetting(
-                ComponentName(this, this.javaClass.name + "Alias"),
-                switch, PackageManager.DONT_KILL_APP
+            ComponentName(this, this.javaClass.name + "Alias"),
+            switch, PackageManager.DONT_KILL_APP
         )
         try {
             val suProcess = Runtime.getRuntime().exec("su")
@@ -111,8 +111,9 @@ class MainActivity : Activity() {
         value_TextView.text = (transition/10.0).toString()
         transition_seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                value_TextView.text = (p1/10.0).toString()
+                value_TextView.text = (p1 / 10.0).toString()
             }
+
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })

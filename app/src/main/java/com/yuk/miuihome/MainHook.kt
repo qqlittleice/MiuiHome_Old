@@ -20,12 +20,16 @@ class MainHook: IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         when (lpparam.packageName) {
             "com.yuk.miuihome" -> {
-                findAndHookMethod("com.yuk.miuihome.MainActivity",
-                    lpparam.classLoader, "isModuleEnable", object : XC_MethodHook() {
+                findAndHookMethod(
+                    "com.yuk.miuihome.MainActivity",
+                    lpparam.classLoader,
+                    "isModuleEnable",
+                    object : XC_MethodHook() {
                         override fun afterHookedMethod(param: MethodHookParam) {
                             param.result = true
                         }
-                    })
+                    }
+                )
             }
             "com.miui.home" -> {
                 try {
@@ -146,7 +150,11 @@ class MainHook: IXposedHookLoadPackage {
                         "com.miui.home.launcher.common.DeviceLevelUtils",
                         lpparam.classLoader,
                         "getDeviceLevelTransitionAnimRatio",
-                        XC_MethodReplacement.returnConstant((Transition / 10.0).toFloat())
+                        object : XC_MethodHook() {
+                            override fun afterHookedMethod(param: MethodHookParam) {
+                                param.result = (Transition / 10.0).toFloat()
+                            }
+                        }
                     )
                 } catch (e: Throwable) {
                     XposedBridge.log("[MiuiHome]Method:" + e.message)

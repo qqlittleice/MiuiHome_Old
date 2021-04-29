@@ -19,3 +19,19 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontusemixedcaseclassnames
+-dontpreverify
+
+-dontwarn *
+-dontnote *
+
+-keepclassmembers class **.R$* {public static <fields>;}
+
+-keepclasseswithmembernames class * {native <methods>;}
+
+-keep class de.robv.android.xposed.IXposedHookLoadPackage {public void handleLoadPackage(...);}
+
+-keep public class * extends miui.app.Activity
+
+-keep class com.yuk.miuihome.*{ *; }

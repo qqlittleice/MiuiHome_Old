@@ -10,29 +10,26 @@ android {
         applicationId "com.yuk.miuihome"
         minSdkVersion 29
         targetSdkVersion 30
-        versionCode 235
-        versionName "2.3.5"
+        versionCode 237
+        versionName "2.3.7"
     }
 
     buildTypes {
         release {
             debuggable false
-            minifyEnabled false
+            minifyEnabled true
             zipAlignEnabled true
-            shrinkResources false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
     }
     aaptOptions {
         noCompress 'zip'
+    }
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+        exclude("**.kotlin_builtins")
+        exclude("**.kotlin_metadata")
     }
 }
 
