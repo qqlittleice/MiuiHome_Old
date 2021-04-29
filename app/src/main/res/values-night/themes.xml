@@ -1,4 +1,4 @@
 <resources>
-    <style name="Theme.MiuiHmoe" parent="ThemeOverlay.AppCompat.Dark">
+    <style name="Theme.MiuiHome" parent="ThemeOverlay.AppCompat.Dark">
     </style>
 </resources>

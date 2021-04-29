@@ -34,7 +34,7 @@
 
         <meta-data
             android:name="xposeddescription"
-            android:value="自定义修改桌面模糊级别和特效" />
+            android:value="自定义修改MIUI桌面" />
 
         <meta-data
             android:name="xposedminversion"

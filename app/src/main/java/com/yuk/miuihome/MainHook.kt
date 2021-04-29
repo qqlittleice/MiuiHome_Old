@@ -146,12 +146,12 @@ class MainHook: IXposedHookLoadPackage {
                     )
 
                     //动画速度
-                    val Tran = getData("TRANSITION", Transition)
+                    val tran = getData("TRANSITION", Transition)
                     findAndHookMethod(
                             "com.miui.home.recents.TransitionAnimDurationHelper",
                             lpparam.classLoader,
                             "getAnimDurationRatio",
-                            XC_MethodReplacement.returnConstant((Tran/100.0).toFloat())
+                            XC_MethodReplacement.returnConstant((tran/100.0).toFloat())
                     )
 
                 } catch (e: Throwable) {
@@ -167,7 +167,7 @@ class MainHook: IXposedHookLoadPackage {
 
 private fun getData(key: String, defValue: Int): Int {
     try {
-        val pref = XSharedPreferences("com.yuk.miuihome", Default().DATAFILENAME)
+        val pref = XSharedPreferences("com.yuk.miuihome", Default().data)
         return pref.getInt(key, defValue)
     } catch (e: Throwable) {
         XposedBridge.log("[MIUIHome]Error:$key")

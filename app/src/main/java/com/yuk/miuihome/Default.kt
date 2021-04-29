@@ -14,13 +14,13 @@ class Default {
     val simplea = 0
     val icon = 0
     val transition = 100
-    val DATAFILENAME = "Config"
+    val data = "Config"
 
     @SuppressLint("SetWorldReadable")
     fun saveData(context: Context, key: String, value: Int) {
         try {
             val sharedPreferences =
-                context.getSharedPreferences(DATAFILENAME, Context.MODE_WORLD_READABLE)
+                context.getSharedPreferences(data, Context.MODE_WORLD_READABLE)
             val editor = sharedPreferences.edit()
             editor.putInt(key, value)
             editor.apply()
@@ -31,7 +31,7 @@ class Default {
     fun getData(context: Context, key: String, defValue: Int): Int {
         try {
             val sharedPreferences =
-                context.getSharedPreferences(DATAFILENAME, Context.MODE_WORLD_READABLE)
+                context.getSharedPreferences(data, Context.MODE_WORLD_READABLE)
             return sharedPreferences.getInt(key, defValue)
         } catch (e: Exception) {
             if (key == "TEST_MODULE") {

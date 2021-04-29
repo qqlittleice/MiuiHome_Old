@@ -14,18 +14,18 @@ import java.io.DataOutputStream
 
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 class MainActivity : Activity() {
-    var complete = Default().complete
-    var simple = Default().simple
-    var none = Default().none
-    var folder = Default().folder
-    var maml = Default().maml
-    var smooth = Default().smooth
-    var clock = Default().clock
-    var transition = Default().transition
-    var simplea = Default().simplea
-    var icon = Default().icon
-    val module_not_enable = "模块未激活"
-    val module_enable = "模块已激活"
+    private var complete = Default().complete
+    private var simple = Default().simple
+    private var none = Default().none
+    private var folder = Default().folder
+    private var maml = Default().maml
+    private var smooth = Default().smooth
+    private var clock = Default().clock
+    private var transition = Default().transition
+    private var simplea = Default().simplea
+    private var icon = Default().icon
+    private val modulenotenable = "模块未激活"
+    private val moduleenable = "模块已激活"
 
     private fun isModuleEnable(): Boolean {
         return false
@@ -37,10 +37,10 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
         if (!isModuleEnable()) {
             val textview = findViewById<TextView>(R.id.textView)
-            textview.text = module_not_enable
+            textview.text = modulenotenable
         } else  {
             val textview = findViewById<TextView>(R.id.textView)
-            textview.text = module_enable
+            textview.text = moduleenable
         }
         complete = Default().getData(this, "COMPLETE", complete)
         simple = Default().getData(this, "SIMPLE", simple)
@@ -93,52 +93,52 @@ class MainActivity : Activity() {
     }
 
     private fun init() {
-        val transition_seekBar = findViewById<SeekBar>(R.id.transition_seekBar)
-        val value_TextView = findViewById<TextView>(R.id.value_TextView)
-        val blur_when_open_folder = findViewById<Switch>(R.id.blur_when_open_folder)
-        val complete_blur = findViewById<Switch>(R.id.complete_blur)
-        val simple_blur = findViewById<Switch>(R.id.simple_blur)
-        val none_blur = findViewById<Switch>(R.id.none_blur)
-        val maml_download = findViewById<Switch>(R.id.maml_download)
-        val smooth_animation = findViewById<Switch>(R.id.smooth_animation)
-        val clock_a = findViewById<Switch>(R.id.clock_a)
-        val simple_a = findViewById<Switch>(R.id.simple_a)
+        val transitionSeekBar = findViewById<SeekBar>(R.id.transition_seekBar)
+        val valueTextView = findViewById<TextView>(R.id.value_TextView)
+        val blurWhenOpenFolder = findViewById<Switch>(R.id.blur_when_open_folder)
+        val completeBlur = findViewById<Switch>(R.id.complete_blur)
+        val simpleBlur = findViewById<Switch>(R.id.simple_blur)
+        val noneBlur = findViewById<Switch>(R.id.none_blur)
+        val mamlDownload = findViewById<Switch>(R.id.maml_download)
+        val smoothAnimation = findViewById<Switch>(R.id.smooth_animation)
+        val clockA = findViewById<Switch>(R.id.clock_a)
+        val simpleA = findViewById<Switch>(R.id.simple_a)
         val button = findViewById<Button>(R.id.button)
-        val textview = findViewById<TextView>(R.id.textView)
-        val hide_icon = findViewById<Switch>(R.id.hide_icon)
+        val textView = findViewById<TextView>(R.id.textView)
+        val hideIcon = findViewById<Switch>(R.id.hide_icon)
 
-        transition_seekBar.progress = transition
-        value_TextView.text = (transition/100.0).toString()
-        transition_seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        transitionSeekBar.progress = transition
+        valueTextView.text = (transition/100.0).toString()
+        transitionSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                value_TextView.text = (p1 / 100.0).toString()
+                valueTextView.text = (p1 / 100.0).toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
 
-        complete_blur.isChecked = complete == 1
-        simple_blur.isChecked = simple == 1
-        none_blur.isChecked = none == 1
-        blur_when_open_folder.isChecked = folder == 1
-        maml_download.isChecked = maml == 1
-        smooth_animation.isChecked = smooth == 1
-        clock_a.isChecked = clock == 1
-        simple_a.isChecked = simplea == 1
-        hide_icon.isChecked = icon == 1
+        completeBlur.isChecked = complete == 1
+        simpleBlur.isChecked = simple == 1
+        noneBlur.isChecked = none == 1
+        blurWhenOpenFolder.isChecked = folder == 1
+        mamlDownload.isChecked = maml == 1
+        smoothAnimation.isChecked = smooth == 1
+        clockA.isChecked = clock == 1
+        simpleA.isChecked = simplea == 1
+        hideIcon.isChecked = icon == 1
 
         button.setOnClickListener {
-            transition = transition_seekBar.progress
-            complete = if (complete_blur.isChecked) 1 else 0
-            simple = if (simple_blur.isChecked) 1 else 0
-            none = if (none_blur.isChecked) 1 else 0
-            folder = if (blur_when_open_folder.isChecked) 1 else 0
-            maml = if (maml_download.isChecked) 1 else 0
-            smooth = if (smooth_animation.isChecked) 1 else 0
-            clock = if (clock_a.isChecked) 1 else 0
-            simplea = if (simple_a.isChecked) 1 else 0
-            icon = if (hide_icon.isChecked) 1 else 0
+            transition = transitionSeekBar.progress
+            complete = if (completeBlur.isChecked) 1 else 0
+            simple = if (simpleBlur.isChecked) 1 else 0
+            none = if (noneBlur.isChecked) 1 else 0
+            folder = if (blurWhenOpenFolder.isChecked) 1 else 0
+            maml = if (mamlDownload.isChecked) 1 else 0
+            smooth = if (smoothAnimation.isChecked) 1 else 0
+            clock = if (clockA.isChecked) 1 else 0
+            simplea = if (simpleA.isChecked) 1 else 0
+            icon = if (hideIcon.isChecked) 1 else 0
             Default().saveData(this, "TRANSITION", transition)
             Default().saveData(this, "COMPLETE", complete)
             Default().saveData(this, "SIMPLE", simple)
@@ -150,7 +150,7 @@ class MainActivity : Activity() {
             Default().saveData(this, "SIMPLEA", simplea)
             Default().saveData(this, "ICON", icon)
 
-            if (textview.text == module_not_enable) {
+            if (textView.text == modulenotenable) {
                 val toast = Toast(this)
                 toast.setText(R.string.not_enable)
                 toast.show()
