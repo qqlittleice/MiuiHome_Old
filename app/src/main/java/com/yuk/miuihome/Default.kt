@@ -24,19 +24,15 @@ class Default {
             val editor = sharedPreferences.edit()
             editor.putInt(key, value)
             editor.apply()
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
         }
     }
 
     fun getData(context: Context, key: String, defValue: Int): Int {
         try {
-            val sharedPreferences =
-                context.getSharedPreferences(data, Context.MODE_WORLD_READABLE)
+            val sharedPreferences = context.getSharedPreferences(data, Context.MODE_WORLD_READABLE)
             return sharedPreferences.getInt(key, defValue)
-        } catch (e: Exception) {
-            if (key == "TEST_MODULE") {
-                return 0
-            }
+        } catch (e: Throwable) {
         }
         return defValue
     }

@@ -24,8 +24,8 @@ class MainActivity : Activity() {
     private var transition = Default().transition
     private var simplea = Default().simplea
     private var icon = Default().icon
-    private val modulenotenable = "模块未激活"
-    private val moduleenable = "模块已激活"
+    private val moduleNotEnable = "模块未激活"
+    private val moduleEnable = "模块已激活"
 
     private fun isModuleEnable(): Boolean {
         return false
@@ -37,10 +37,10 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
         if (!isModuleEnable()) {
             val textview = findViewById<TextView>(R.id.textView)
-            textview.text = modulenotenable
+            textview.text = moduleNotEnable
         } else  {
             val textview = findViewById<TextView>(R.id.textView)
-            textview.text = moduleenable
+            textview.text = moduleEnable
         }
         complete = Default().getData(this, "COMPLETE", complete)
         simple = Default().getData(this, "SIMPLE", simple)
@@ -150,7 +150,7 @@ class MainActivity : Activity() {
             Default().saveData(this, "SIMPLEA", simplea)
             Default().saveData(this, "ICON", icon)
 
-            if (textView.text == modulenotenable) {
+            if (textView.text == moduleNotEnable) {
                 val toast = Toast(this)
                 toast.setText(R.string.not_enable)
                 toast.show()

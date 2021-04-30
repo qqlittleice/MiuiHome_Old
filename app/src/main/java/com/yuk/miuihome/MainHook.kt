@@ -25,8 +25,8 @@ class MainHook: IXposedHookLoadPackage {
                     lpparam.classLoader,
                     "isModuleEnable",
                     object : XC_MethodHook() {
-                        override fun afterHookedMethod(param: MethodHookParam) {
-                            param.result = true
+                        override fun afterHookedMethod(lpparam: MethodHookParam) {
+                            lpparam.result = true
                         }
                     }
                 )
