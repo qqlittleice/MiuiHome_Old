@@ -8,9 +8,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.*
+import androidx.annotation.Keep
 import miui.app.Activity
 import java.io.DataOutputStream
-
 
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 class MainActivity : Activity() {
@@ -27,7 +27,7 @@ class MainActivity : Activity() {
     private val moduleNotEnable = "模块未激活"
     private val moduleEnable = "模块已激活"
 
-    private fun isModuleEnable(): Boolean {
+    @Keep private fun isModuleEnable(): Boolean {
         return false
     }
 

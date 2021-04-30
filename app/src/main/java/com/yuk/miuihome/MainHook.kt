@@ -1,9 +1,11 @@
 package com.yuk.miuihome
 
+import androidx.annotation.Keep
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import de.robv.android.xposed.XposedHelpers.findAndHookMethod
 
+@Keep
 class MainHook: IXposedHookLoadPackage {
     companion object {
         var Complete = Default().complete

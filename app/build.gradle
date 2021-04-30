@@ -10,8 +10,8 @@ android {
         applicationId "com.yuk.miuihome"
         minSdkVersion 29
         targetSdkVersion 30
-        versionCode 243
-        versionName "2.4.3"
+        versionCode 245
+        versionName "2.4.5"
     }
 
     buildTypes {
