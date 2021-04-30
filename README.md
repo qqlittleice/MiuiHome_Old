@@ -16,4 +16,4 @@
 
 __截图:__
 
-![MiuiHome](https://cdn.jsdelivr.net/gh/YuKongA/MiuiHome@main/Screenshot.jpg)
+![MiuiHome](https://raw.githubusercontent.com/YuKongA/MiuiHome/main/Screenshot.jpg)
