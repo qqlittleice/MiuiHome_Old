@@ -92,6 +92,7 @@ class MainActivity : Activity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun init() {
         val transitionSeekBar = findViewById<SeekBar>(R.id.transition_seekBar)
         val valueTextView = findViewById<TextView>(R.id.value_TextView)
@@ -108,10 +109,10 @@ class MainActivity : Activity() {
         val hideIcon = findViewById<Switch>(R.id.hide_icon)
 
         transitionSeekBar.progress = transition
-        valueTextView.text = (transition/100.0).toString()
+        valueTextView.text = (transition/100.0).toString() + "f"
         transitionSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                valueTextView.text = (p1 / 100.0).toString()
+                valueTextView.text = (p1 / 100.0).toString() + "f"
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
