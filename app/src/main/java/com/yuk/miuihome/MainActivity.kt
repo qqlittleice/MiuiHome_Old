@@ -72,22 +72,16 @@ class MainActivity : Activity() {
             os.close()
             val exitValue = suProcess.waitFor()
             if (exitValue == 0) {
-                val toast = Toast(this)
-                toast.setText(R.string.save1_tips)
-                toast.show()
+                Toast.makeText(this, R.string.save1_tips, Toast.LENGTH_SHORT).show()
             } else {
-                val toast = Toast(this)
-                toast.setText(R.string.su_tips)
-                toast.show()
+                Toast.makeText(this, R.string.su_tips, Toast.LENGTH_SHORT).show()
                 throw Exception()
             }
         } catch (e: Exception) {
             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
             val uri = Uri.fromParts("package", "com.miui.home", null)
             intent.data = uri
-            val toast = Toast(this)
-            toast.setText(R.string.save2_tips)
-            toast.show()
+            Toast.makeText(this, R.string.save2_tips, Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }
     }
@@ -152,9 +146,7 @@ class MainActivity : Activity() {
             Default().saveData(this, "ICON", icon)
 
             if (textView.text == moduleNotEnable) {
-                val toast = Toast(this)
-                toast.setText(R.string.not_enable)
-                toast.show()
+                Toast.makeText(this, R.string.not_enable, Toast.LENGTH_SHORT).show()
             } else {
                 home()
             }
