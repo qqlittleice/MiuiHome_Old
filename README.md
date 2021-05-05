@@ -14,6 +14,9 @@
 - 状态栏时钟常显.
 - 强制设备为高端设备.
 
+
+### 新仓库：[1767523953/MiuiHome](https://github.com/1767523953/MiuiHome)
+
 __截图:__
 
 ![MiuiHome](https://raw.githubusercontent.com/YuKongA/MiuiHome/main/Screenshot.jpg)
