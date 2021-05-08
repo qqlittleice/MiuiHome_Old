@@ -32,7 +32,7 @@ class MainActivity : Activity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //使其闪退setTheme(miui.R.style.Theme_Light_Settings)
+        setTheme(miui.R.style.Theme_Light_Settings)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (!isModuleEnable()) {
