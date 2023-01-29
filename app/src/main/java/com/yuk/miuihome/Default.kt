@@ -16,23 +16,23 @@ class Default {
     val transition = 100
     val data = "Config"
 
-    @SuppressLint("SetWorldReadable")
+    @SuppressLint("SetWorldReadable", "WorldReadableFiles")
     fun saveData(context: Context, key: String, value: Int) {
         try {
-            val sharedPreferences =
-                context.getSharedPreferences(data, Context.MODE_WORLD_READABLE)
+            val sharedPreferences = context.getSharedPreferences(data, Context.MODE_WORLD_READABLE)
             val editor = sharedPreferences.edit()
             editor.putInt(key, value)
             editor.apply()
-        } catch (e: Throwable) {
+        } catch (_: Throwable) {
         }
     }
 
+    @SuppressLint("WorldReadableFiles")
     fun getData(context: Context, key: String, defValue: Int): Int {
         try {
             val sharedPreferences = context.getSharedPreferences(data, Context.MODE_WORLD_READABLE)
             return sharedPreferences.getInt(key, defValue)
-        } catch (e: Throwable) {
+        } catch (_: Throwable) {
         }
         return defValue
     }

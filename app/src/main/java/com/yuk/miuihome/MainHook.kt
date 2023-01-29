@@ -1,12 +1,16 @@
 package com.yuk.miuihome
 
 import androidx.annotation.Keep
-import de.robv.android.xposed.*
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.XC_MethodHook
+import de.robv.android.xposed.XC_MethodReplacement
+import de.robv.android.xposed.XSharedPreferences
+import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers.findAndHookMethod
+import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 @Keep
-class MainHook: IXposedHookLoadPackage {
+class MainHook : IXposedHookLoadPackage {
     companion object {
         var Complete = Default().complete
         var Simple = Default().simple
@@ -33,6 +37,7 @@ class MainHook: IXposedHookLoadPackage {
                     }
                 )
             }
+
             "com.miui.home" -> {
                 try {
                     //模糊级别
@@ -141,25 +146,26 @@ class MainHook: IXposedHookLoadPackage {
 
                     //设备分级
                     findAndHookMethod(
-                            "com.miui.home.launcher.common.DeviceLevelUtils",
-                            lpparam.classLoader,
-                            "getDeviceLevel",
-                            XC_MethodReplacement.returnConstant(2)
+                        "com.miui.home.launcher.common.DeviceLevelUtils",
+                        lpparam.classLoader,
+                        "getDeviceLevel",
+                        XC_MethodReplacement.returnConstant(2)
                     )
 
                     //动画速度
                     val tran = getData("TRANSITION", Transition)
                     findAndHookMethod(
-                            "com.miui.home.recents.TransitionAnimDurationHelper",
-                            lpparam.classLoader,
-                            "getAnimDurationRatio",
-                            XC_MethodReplacement.returnConstant((tran/100.0).toFloat())
+                        "com.miui.home.recents.TransitionAnimDurationHelper",
+                        lpparam.classLoader,
+                        "getAnimDurationRatio",
+                        XC_MethodReplacement.returnConstant((tran / 100.0).toFloat())
                     )
 
                 } catch (e: Throwable) {
                     XposedBridge.log("[MiuiHome]Method:" + e.message)
                 }
             }
+
             else -> {
                 return
             }
